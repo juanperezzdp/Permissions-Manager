@@ -1,0 +1,25 @@
+export const messages = {
+  error: {
+    needProps: "Te falto enviar algún campo",
+    emailNotValid: "Email no valido",
+    passwordsNotMatch: "Las contraseñas no coinciden",
+    idUserNotMatch: "Los id no coinciden",
+    emailExist: "Ya existe un usuario con ese correo",
+    default: "Ocurrió un error",
+    userNotFound: "Usuario no encontrado",
+    incorrectPassword: "Contraseña incorrecta",
+    notAuthorized: "No autorizado",
+    tokenNotValid: "Token no valido",
+    idNotFound: "No se encontró ningún documento con el idUser proporcionado.",
+  },
+  success: {
+    userCreated: "Usuario creado correctamente",
+    userLogged: "Que bueno verte devuelta!",
+    emailSent: "Correo enviado correctamente",
+    passwordChanged: "Contraseña cambiada correctamente",
+    authorized: "Autorizado",
+    permissionCreated: "A sido creado correctamente el permiso",
+    getListPermisssions: "Lista de permisos obtenida correctamente.",
+    updatedPermission: "El campo estado ha sido actualizado correctamente.",
+  },
+};
