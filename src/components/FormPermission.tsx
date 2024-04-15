@@ -13,6 +13,7 @@ interface PermissionFormProps {
   unidad: string;
   time: number;
   description: string;
+  email: string;
 }
 
 const FormPermission: React.FC = () => {
@@ -33,19 +34,21 @@ const FormPermission: React.FC = () => {
   };
 
   const onSubmit = async (data: PermissionFormProps) => {
-    await postPermission({
-      formData: {
-        idUser: token?.data._id,
-        name: token?.data.fullUserName,
-        doc: Number(token?.data.doc),
-        date: data.date,
-        unidad: valueTime,
-        time: Number(data.time),
-        description: data.description,
-        email: token?.data.email,
-      },
-    });
-    reset();
+    if (token) {
+      await postPermission({
+        formData: {
+          idUser: token?.data._id,
+          name: token?.data.fullUserName,
+          doc: Number(token?.data.doc),
+          date: data.date,
+          unidad: valueTime,
+          time: Number(data.time),
+          description: data.description,
+          email: token?.data.email,
+        },
+      });
+      reset();
+    }
   };
 
   return (

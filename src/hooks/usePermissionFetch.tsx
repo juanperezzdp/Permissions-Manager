@@ -10,6 +10,7 @@ interface PermissionPost {
     unidad: string;
     time: number;
     description: string;
+    email: string;
   };
 }
 
