@@ -38,7 +38,7 @@ const FormPermission: React.FC = () => {
       await postPermission({
         formData: {
           idUser: token?.data._id,
-          name: token?.data.fullUserName,
+          name: token?.data.fullUserName ?? "",
           doc: Number(token?.data.doc),
           date: data.date,
           unidad: valueTime,
