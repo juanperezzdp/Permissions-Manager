@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import animations from "iconsty-animation";
 
 const config: Config = {
   content: [
@@ -16,6 +15,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [animations],
+  plugins: [],
 };
 export default config;
