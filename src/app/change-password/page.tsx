@@ -2,7 +2,6 @@
 import { useForm } from "react-hook-form";
 import { useAuthFetch } from "@/hooks/useAuthFetch";
 import useStore from "@/store/storeGlobals";
-import Link from "next/link";
 import { AxiosRequestConfig } from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
