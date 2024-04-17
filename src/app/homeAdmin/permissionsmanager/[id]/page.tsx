@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import usePermissionFetch from "@/hooks/usePermissionFetch";
 import useStore from "@/store/storeGlobals";
 import Image from "next/image";
@@ -42,7 +42,7 @@ const UpdateStatusPage = () => {
   const params = useParams();
   const { errorPermission } = useStore();
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const response = await axios.get<PermissionsResponse>(
         "http://localhost:3000/api/permission"
@@ -57,11 +57,11 @@ const UpdateStatusPage = () => {
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [params]);
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   const onSubmit = async () => {
     await putPermission({
