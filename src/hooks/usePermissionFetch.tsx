@@ -30,10 +30,7 @@ const usePermissionApi = () => {
 
   const postPermission = async (Data: PermissionPost) => {
     try {
-      const { data } = await axios.post(
-        "http://localhost:3000/api/permission",
-        Data.formData
-      );
+      const { data } = await axios.post("/api/permission", Data.formData);
       if (data.message) setErrorPermission(data.message);
     } catch (error: any) {
       console.log(error.response.data.message);
@@ -43,10 +40,7 @@ const usePermissionApi = () => {
 
   const putPermission = async (Data: PermissionPut) => {
     try {
-      const { data } = await axios.put(
-        "http://localhost:3000/api/permission",
-        Data.formData
-      );
+      const { data } = await axios.put("/api/permission", Data.formData);
       if (data.message) setErrorPermission(data.message);
     } catch (error: any) {
       setErrorPermission(error.response.data.message);
