@@ -17,7 +17,7 @@ export function useAuthFetch() {
   }: AuthFetchProps) => {
     try {
       const { data } = await axios.post(
-        `https://gestordepermisos.netlify.app/api/auth/${endpoint}`,
+        `/api/auth/${endpoint}`,
         formData,
         options
       );

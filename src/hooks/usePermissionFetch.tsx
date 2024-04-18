@@ -31,7 +31,7 @@ const usePermissionApi = () => {
   const postPermission = async (Data: PermissionPost) => {
     try {
       const { data } = await axios.post(
-        "https://gestordepermisos.netlify.app/api/permission",
+        "http://localhost:3000/api/permission",
         Data.formData
       );
       if (data.message) setErrorPermission(data.message);
@@ -44,7 +44,7 @@ const usePermissionApi = () => {
   const putPermission = async (Data: PermissionPut) => {
     try {
       const { data } = await axios.put(
-        "https://gestordepermisos.netlify.app/api/permission",
+        "http://localhost:3000/api/permission",
         Data.formData
       );
       if (data.message) setErrorPermission(data.message);
