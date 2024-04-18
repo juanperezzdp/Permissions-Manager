@@ -17,7 +17,7 @@ export function useAuthFetch() {
   }: AuthFetchProps) => {
     try {
       const { data } = await axios.post(
-        `/api/auth/${endpoint}`,
+        `http://localhost:3000/api/auth/${endpoint}`,
         formData,
         options
       );
