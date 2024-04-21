@@ -12,6 +12,7 @@
     "axios": "^1.6.8",
     "bcryptjs": "^2.4.3",
     "cookie": "^0.6.0",
+    "iconsty-animation": "^0.0.1",
     "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.2.1",
