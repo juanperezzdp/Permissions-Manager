@@ -6,6 +6,9 @@ import User from "@/models/User";
 export async function GET(request: NextRequest) {
   try {
     await connectMongoDB();
+
+    await User.updateMany({}, { $set: { updatedAt: new Date() } });
+
     const users = await User.find();
 
     return NextResponse.json({ users }, { status: 200 });
