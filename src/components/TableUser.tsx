@@ -33,7 +33,7 @@ const TableUser: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get<PermissionsResponse>(
-          "http://localhost:3000/api/permission"
+          "/api/permission"
         );
 
         if (token?.data._id) {
