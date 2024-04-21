@@ -1,7 +1,7 @@
 "use client";
 import TableUser from "@/components/TableUser";
 import Image from "next/image";
-import IllustrationI from "@/SVG/Illustration (18).svg";
+import IllustrationI from "@/SVG/Illustration(18).svg";
 
 import useToken from "@/hooks/useToken";
 import { useRouter } from "next/navigation";
@@ -13,16 +13,16 @@ const HomeUser = () => {
   return (
     <section className="m-4">
       <div className="w-full flex-col-reverse sm:flex-row p-4 sm:h-[25rem] sm:flex justify-center items-center">
-        <Image
-          className=""
-          width={300}
-          height={300}
-          src={IllustrationI}
-          alt="Team Work Illustration"
-        />
+        <div className="flex justify-center">
+          <Image
+            className=" w-[20rem] sm:w-[35rem]"
+            src={IllustrationI}
+            alt="Team Work Illustration"
+          />
+        </div>
         <div className="sm:w-[30rem] text-center sm:text-left sm:h-auto flex flex-col gap-10 text-white  animate-fade-in-left animate-duration-1000 animate-iteration-count-one">
           <div>
-            <h2 className="text-2xl sm:mb-4 h-20 sm:h-7">
+            <h2 className="text-2xl sm:mb-4 h-16 sm:h-7">
               {`¡Bienvenido, ${
                 token?.data.fullUserName === undefined
                   ? ""

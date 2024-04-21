@@ -45,7 +45,7 @@ const UpdateStatusPage = () => {
   const fetchData = useCallback(async () => {
     try {
       const response = await axios.get<PermissionsResponse>(
-        "http://localhost:3000/api/permission"
+        "/api/permission"
       );
 
       if (params) {
