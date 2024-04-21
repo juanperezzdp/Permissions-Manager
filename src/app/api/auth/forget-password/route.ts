@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       expiresIn: 86400,
     });
 
-    const forgetUrl = `http://localhost:3000/change-password?token=${token}`;
+    const forgetUrl = `https://permissions-manager.vercel.app/change-password?token=${token}`;
 
     const transporter = nodemailer.createTransport({
       service: "Gmail",
