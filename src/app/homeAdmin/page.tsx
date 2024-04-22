@@ -23,20 +23,20 @@ const HomeAdmin: React.FC = () => {
   const navigate = useRouter();
   const token = useToken();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch("/api/users");
-        if (!res.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data = await res.json();
-        setUserData(data.users);
-      } catch (error: any) {
-        console.log(error.message);
+  const fetchData = async () => {
+    try {
+      const res = await fetch("/api/users");
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
       }
-    };
+      const data = await res.json();
+      setUserData(data.users);
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
