@@ -91,9 +91,12 @@ export async function POST(request: NextRequest) {
 
     await newUser.save();
 
+    // Después de guardar el nuevo usuario, consulta todos los usuarios
+    const allUsers = await User.find({});
+
     const response = NextResponse.json(
       {
-        newUser: rest,
+        users: allUsers, // Enviar la lista actualizada de usuarios
         message: messages.success.userCreated,
       },
       {
