@@ -1,4 +1,4 @@
-##Bienvenido al Repositorio del Gestor de Permisos Laborales 👋
+# # Bienvenido al Repositorio del Gestor de Permisos Laborales 👋
 
 Este repositorio contiene el código fuente de una aplicación web diseñada para gestionar permisos laborales de manera eficiente. Aquí encontrarás una descripción general de las funcionalidades principales de la aplicación:
 
