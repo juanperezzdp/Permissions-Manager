@@ -11,7 +11,7 @@ export async function middleware(request: NextRequest) {
     }
 
     const res = await fetch(
-      "https://permissions-manager.vercel.app/api/auth/check",
+      "https://gestordepermisos.vercel.app/api/auth/check",
       {
         headers: {
           token: token.value,
