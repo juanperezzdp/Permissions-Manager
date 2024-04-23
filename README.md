@@ -1,4 +1,5 @@
-Bienvenido al Repositorio del Gestor de Permisos Laborales 👋
+##Bienvenido al Repositorio del Gestor de Permisos Laborales 👋
+
 Este repositorio contiene el código fuente de una aplicación web diseñada para gestionar permisos laborales de manera eficiente. Aquí encontrarás una descripción general de las funcionalidades principales de la aplicación:
 
 Funcionalidades Principales:
@@ -6,6 +7,7 @@ Realizar Solicitudes Laborales: Los usuarios pueden enviar solicitudes de permis
 Confirmación por Correo Electrónico: Después de realizar una solicitud, los usuarios recibirán un correo electrónico de confirmación como comprobante de la misma.
 Verificación del Estado de la Solicitud: Los usuarios pueden verificar el estado actual de sus solicitudes dentro de la aplicación web en cualquier momento.
 Notificaciones por Correo Electrónico: Los usuarios recibirán notificaciones por correo electrónico sobre la aprobación o denegación de sus solicitudes.
+
 ¿Olvidaste tu Contraseña?
 Si olvidas tu contraseña, no te preocupes. Sigue estos pasos para restablecerla fácilmente:
 
