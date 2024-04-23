@@ -37,6 +37,14 @@ export async function middleware(request: NextRequest) {
       if (!request.nextUrl.pathname.startsWith("/homeAdmin")) {
         return NextResponse.redirect(new URL("/homeAdmin", request.url));
       }
+    } else if (rol === "admin") {
+      if (!request.nextUrl.pathname.startsWith("/api/users")) {
+        return NextResponse.redirect(new URL("/", request.url));
+      }
+    } else if (rol === "admin" || rol === "user") {
+      if (!request.nextUrl.pathname.startsWith("/api/permission")) {
+        return NextResponse.redirect(new URL("/", request.url));
+      }
     }
 
     return NextResponse.next();
