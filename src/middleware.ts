@@ -10,14 +10,11 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL("/", request.url));
     }
 
-    const res = await fetch(
-      "https://gestordepermisos.vercel.app/api/auth/check",
-      {
-        headers: {
-          token: token.value,
-        },
-      }
-    );
+    const res = await fetch("http://localhost:3000/api/auth/check", {
+      headers: {
+        token: token.value,
+      },
+    });
 
     const data = await res.json();
 
@@ -29,17 +26,18 @@ export async function middleware(request: NextRequest) {
     const decodedToken = jwt.decode(token.value);
     const rol = (decodedToken as JwtPayload).data?.rol;
 
-    // Verificar si el rol es user o admin
     if (rol !== "user" && rol !== "admin") {
       return NextResponse.redirect(new URL("/", request.url));
     }
 
-    // Permitir acceso a las rutas /api/users y /api/permission solo para user y admin
     if (
+      request.nextUrl.pathname.startsWith("/api/auth/register") ||
       request.nextUrl.pathname.startsWith("/api/users") ||
       request.nextUrl.pathname.startsWith("/api/permission")
     ) {
-      if (rol !== "user" && rol !== "admin") {
+      if (rol !== "user" || rol !== "admin") {
+        return NextResponse.next();
+      } else {
         return NextResponse.redirect(new URL("/", request.url));
       }
     }
@@ -66,5 +64,6 @@ export const config = {
     "/homeAdmin/:path*",
     "/api/users",
     "/api/permission",
+    "/api/auth/register",
   ],
 };
