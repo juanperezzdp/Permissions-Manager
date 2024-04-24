@@ -10,11 +10,14 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL("/", request.url));
     }
 
-    const res = await fetch("http://localhost:3000/api/auth/check", {
-      headers: {
-        token: token.value,
-      },
-    });
+    const res = await fetch(
+      "https://gestordepermisos.vercel.app/api/auth/check",
+      {
+        headers: {
+          token: token.value,
+        },
+      }
+    );
 
     const data = await res.json();
 
