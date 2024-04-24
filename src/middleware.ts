@@ -29,6 +29,21 @@ export async function middleware(request: NextRequest) {
     const decodedToken = jwt.decode(token.value);
     const rol = (decodedToken as JwtPayload).data?.rol;
 
+    // Verificar si el rol es user o admin
+    if (rol !== "user" && rol !== "admin") {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+
+    // Permitir acceso a las rutas /api/users y /api/permission solo para user y admin
+    if (
+      request.nextUrl.pathname.startsWith("/api/users") ||
+      request.nextUrl.pathname.startsWith("/api/permission")
+    ) {
+      if (rol !== "user" && rol !== "admin") {
+        return NextResponse.redirect(new URL("/", request.url));
+      }
+    }
+
     if (rol === "user") {
       if (!request.nextUrl.pathname.startsWith("/homeUser")) {
         return NextResponse.redirect(new URL("/homeUser", request.url));
@@ -39,25 +54,12 @@ export async function middleware(request: NextRequest) {
       }
     }
 
-    if (
-      (rol === "admin" || rol === "user") &&
-      (request.nextUrl.pathname.startsWith("/api/users") ||
-        request.nextUrl.pathname.startsWith("/api/permission"))
-    ) {
-      return NextResponse.redirect(new URL("/", request.url));
-    }
-
-    return NextResponse.redirect(new URL("/", request.url));
+    return NextResponse.next();
   } catch (error) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 }
 
 export const config = {
-  matcher: [
-    "/homeUser/:path*",
-    "/homeAdmin/:path*",
-    "/api/users",
-    "/api/permission",
-  ],
+  matcher: ["/homeUser/:path*", "/homeAdmin/:path*"],
 };
