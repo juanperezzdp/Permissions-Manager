@@ -10,14 +10,11 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(new URL("/", request.url));
     }
 
-    const res = await fetch(
-      "https://gestordepermisos.vercel.app/api/auth/check",
-      {
-        headers: {
-          token: token.value,
-        },
-      }
-    );
+    const res = await fetch(process.env.ENDPOINT_CHECK as string, {
+      headers: {
+        token: token.value,
+      },
+    });
 
     const data = await res.json();
 
@@ -29,16 +26,12 @@ export async function middleware(request: NextRequest) {
     const decodedToken = jwt.decode(token.value);
     const rol = (decodedToken as JwtPayload).data?.rol;
 
-    if (rol !== "user" && rol !== "admin") {
-      return NextResponse.redirect(new URL("/", request.url));
-    }
-
     if (
-      request.nextUrl.pathname.startsWith("/api/auth/register") ||
-      request.nextUrl.pathname.startsWith("/api/users") ||
-      request.nextUrl.pathname.startsWith("/api/permission")
+      request.nextUrl.pathname.includes("/api/auth/register") ||
+      request.nextUrl.pathname.includes("/api/users") ||
+      request.nextUrl.pathname.includes("/api/permission")
     ) {
-      if (rol !== "user" || rol !== "admin") {
+      if (data.message === "Autorizado") {
         return NextResponse.next();
       } else {
         return NextResponse.redirect(new URL("/", request.url));
