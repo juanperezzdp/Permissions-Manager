@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
           
       </head>
       <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; font-family: 'Reboto', 'Rubik', sans-serif;" leftmargin="0">
-         <div style="font-family: 'Reboto', 'Rubik', sans-serif; margin: 30px; display: flex; align-items: center; flex-direction: column;">
+         <div style="font-family: 'Reboto', 'Rubik', sans-serif; margin: 30px; display: flex; flex-direction: column; align-items: center;">
          
          <img style="width: 30rem;" src="https://raw.githubusercontent.com/juanperezzdp/Permissions-Manager/main/src/IMG/coo.png" alt="">
          
