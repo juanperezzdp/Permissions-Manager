@@ -101,18 +101,20 @@ export async function POST(request: NextRequest) {
       html: `<html lang="en-US">
       <head>
           <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-          <title>Reset Password Email Template</title>
-          <meta name="description" content="Reset Password Email Template.">
+          <title>Email</title>
+          <meta name="description" content="Email">
           
       </head>
       <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; font-family: 'Reboto', 'Rubik', sans-serif;" leftmargin="0">
-         <div style="font-family: 'Reboto', 'Rubik', sans-serif; margin: 30px;">
+         <div style="font-family: 'Reboto', 'Rubik', sans-serif; margin: 30px; display: flex; align-items: center; flex-direction: column;">
+         
+         <img style="width: 30rem;" src="https://raw.githubusercontent.com/juanperezzdp/Permissions-Manager/main/src/IMG/coo.png" alt="">
+         
           <h2 style="text-align: center;" >Hola ${name}👋</h2>
           <p style="text-align: center;" >Este es el correo de confirmación de tu solicitud de permiso laboral.</p>
           <p style="text-align: center;">Cuando se modifique el estado de tu solicitud, recibirás un correo con la información correspondiente, ya sea que haya sido aprobado o denegado. También puedes seguir el proceso de la solicitud en la aplicación web.</p>
-      
-          <div style="background-color: white;  border-radius: 15px; padding: 30px; background-color: #29976d; color: #ffff;  ">
-            <h2 style="text-align: center;">Tu solicitud</h2>
+       </div> 
+          <div style=" border-radius: 15px; padding: 30px;">
             <div >
               <p>Nombre: ${name}</p>
               <p>Documento: ${doc}</p>  
@@ -123,10 +125,8 @@ export async function POST(request: NextRequest) {
               <p>Correo: ${email}</p>
             </div>
           </div>
-        </div>   
       </body>
-      </html>
-      `,
+      </html>`,
     };
 
     // Enviar el correo electrónico
