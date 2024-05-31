@@ -101,32 +101,59 @@ export async function POST(request: NextRequest) {
       html: `<html lang="en-US">
       <head>
           <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-          <title>Reset Password Email Template</title>
-          <meta name="description" content="Reset Password Email Template.">
-          
+          <title>Email</title>
+          <meta name="description" content="Email">
+          <style>
+              body {
+                  margin: 0px;
+                  font-family: 'Reboto', 'Rubik', sans-serif;
+              }
+              .container {
+                  font-family: 'Reboto', 'Rubik', sans-serif;
+                  margin: 30px;
+                  align-items: center;
+              }
+              .container-img {
+                  width: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+              }
+              img {
+                  width: 30rem;
+              }
+              .container h2, .container p {
+                  text-align: center;
+              }
+              .info-box {
+                  border-radius: 15px;
+                  padding: 30px;
+              }
+          </style>
       </head>
-      <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; font-family: 'Reboto', 'Rubik', sans-serif;" leftmargin="0">
-         <div style="font-family: 'Reboto', 'Rubik', sans-serif; margin: 30px;">
-          <h2 style="text-align: center;" >Hola ${name}👋</h2>
-          <p style="text-align: center;" >Este es el correo de confirmación de tu solicitud de permiso laboral.</p>
-          <p style="text-align: center;">Cuando se modifique el estado de tu solicitud, recibirás un correo con la información correspondiente, ya sea que haya sido aprobado o denegado. También puedes seguir el proceso de la solicitud en la aplicación web.</p>
-      
-          <div style="background-color: white;  border-radius: 15px; padding: 30px; background-color: #29976d; color: #ffff;  ">
-            <h2 style="text-align: center;">Tu solicitud</h2>
-            <div >
-              <p>Nombre: ${name}</p>
-              <p>Documento: ${doc}</p>  
-              <p>Fecha: ${date}</p>
-              <p>Unidad: ${unidad}</p>
-              <p>Tiempos: ${time}</p>
-              <p>Descripción: ${description}</p>
-              <p>Correo: ${email}</p>
+      <body>
+          <div class="container">
+            <div class="container-img">
+              <img src="https://raw.githubusercontent.com/juanperezzdp/Permissions-Manager/main/src/IMG/coo.png" alt="">
             </div>
+              
+              <h2>Hola ${name}👋</h2>
+              <p>Este es el correo de confirmación de tu solicitud de permiso laboral.</p>
+              <p>Cuando se modifique el estado de tu solicitud, recibirás un correo con la información correspondiente, ya sea que haya sido aprobado o denegado. También puedes seguir el proceso de la solicitud en la aplicación web.</p>
+          </div> 
+          <div class="info-box">
+              <div>
+                  <p>Nombre: ${name}</p>
+                  <p>Documento: ${doc}</p>  
+                  <p>Fecha: ${date}</p>
+                  <p>Unidad: ${unidad}</p>
+                  <p>Tiempos: ${time}</p>
+                  <p>Descripción: ${description}</p>
+                  <p>Correo: ${email}</p>
+              </div>
           </div>
-        </div>   
       </body>
-      </html>
-      `,
+      </html>`,
     };
 
     // Enviar el correo electrónico
