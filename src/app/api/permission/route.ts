@@ -234,17 +234,49 @@ export async function PUT(request: NextRequest) {
         html: `<html lang="en-US">
         <head>
             <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-            <title>Reset Password Email Template</title>
-            <meta name="description" content="Reset Password Email Template.">
+            <title>Email Aprovacion</title>
+            <meta name="description" content="Email Aprovacion">
+            <style>
+                
+                body {
+                    margin: 0px;
+                    font-family: 'Reboto', 'Rubik', sans-serif;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .container {
+                    margin-left: 5rem;
+                    margin-right: 5rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                     
+                }
+                img {
+                    width: 30rem;
+                }
+                .heading {
+                    text-align: center;
+                }
+                .paragraph {
+                    text-align: center;
+                }
+                .approved {
+                    color: green;
+                    font-weight: 600;
+                }
+            </style>
         </head>
-        <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; font-family: 'Reboto', 'Rubik', sans-serif;" leftmargin="0">
-            <div style="font-family: 'Reboto', 'Rubik', sans-serif; margin: 30px;">
-                <h2 style="text-align: center;" >Hola ${name}👋</h2>
-                <p style="text-align: center;" >Se ha revisado la solicitud con fecha del ${date} por parte del líder del área y del departamento de Recursos Humanos, y ha sido <span style="color: green; font-weight: 600;">APROVADA.</span></p>
-               
+        <body marginheight="0" topmargin="0" marginwidth="0" leftmargin="0">
+            <div class="container">
+                <img src="https://raw.githubusercontent.com/juanperezzdp/Permissions-Manager/main/src/IMG/checklist.png" alt="">
+                <h2 class="heading">Hola ${name}👋</h2>
+                <p class="paragraph">Se ha revisado detenidamente la solicitud con fecha del ${date} por parte del líder del área correspondiente, así como del departamento de Recursos Humanos. Después de un análisis exhaustivo y de considerar todos los aspectos relevantes, incluyendo la normativa interna y las políticas vigentes de la organización, nos complace informarle que dicha solicitud ha sido <span class="approved">APROVADA.</span></p>
             </div>   
         </body>
-    </html>`,
+        </html>`,
       };
 
       await transporter.sendMail(mailOptions);
@@ -267,17 +299,50 @@ export async function PUT(request: NextRequest) {
         html: `<html lang="en-US">
         <head>
             <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-            <title>Reset Password Email Template</title>
-            <meta name="description" content="Reset Password Email Template.">
+            <title>Email para denegar solicitud</title>
+            <meta name="Email para denegar solicitud">
+            <style>
+                body {
+                    margin: 0px;
+                    font-family: 'Reboto', 'Rubik', sans-serif;
+                    margin-left: 5rem;
+                    margin-right: 5rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .container {
+                    margin: 30px;
+                    margin-left: 5rem;
+                    margin-right: 5rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+        
+                }
+                img {
+                    width: 30rem;
+                }
+                .heading {
+                    text-align: center;
+                }
+                .paragraph {
+                    text-align: center;
+                }
+                .denied {
+                    color: red;
+                    font-weight: 600;
+                }
+            </style>
         </head>
-        <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; font-family: 'Reboto', 'Rubik', sans-serif;" leftmargin="0">
-            <div style="font-family: 'Reboto', 'Rubik', sans-serif; margin: 30px;">
-                <h2 style="text-align: center;" >Hola ${name}👋</h2>
-                <p style="text-align: center;" >La solicitud con fecha ${date} ha sido revisada por el líder del área y el departamento de Recursos Humanos, y lamentablemente ha sido <span style="color: red; font-weight: 600;">DENEGADA</span>. Es probable que tu solicitud haya sido presentada menos de tres días antes de la fecha solicitada. Si necesitas el permiso de forma urgente, te recomendamos que te acerques a la oficina de Recursos Humanos. </p>
-               
+        <body marginheight="0" topmargin="0" marginwidth="0" leftmargin="0">
+            <div class="container">
+                <img src="https://raw.githubusercontent.com/juanperezzdp/Permissions-Manager/main/src/IMG/group.png" alt="">
+                <h2 class="heading">Hola ${name}👋</h2>
+                <p class="paragraph">La solicitud con fecha ${date} ha sido revisada por el líder del área y el departamento de Recursos Humanos, y lamentablemente ha sido <span class="denied">DENEGADA</span>. Es probable que tu solicitud haya sido presentada menos de tres días antes de la fecha solicitada. Si necesitas el permiso de forma urgente, te recomendamos que te acerques a la oficina de Recursos Humanos.</p>
             </div>   
         </body>
-    </html>`,
+        </html>`,
       };
 
       await transporter.sendMail(mailOptions);
