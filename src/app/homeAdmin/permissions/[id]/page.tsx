@@ -6,26 +6,7 @@ import usePermissionFetch from "@/hooks/usePermissionFetch";
 import useStore from "@/store/storeGlobals";
 import Image from "next/image";
 import Illustration from "@/SVG/Illustration(11).svg";
-
-interface Permission {
-  _id: string;
-  idUser: string;
-  name: string;
-  doc: number;
-  date: string;
-  unidad: string;
-  time: number;
-  description: string;
-  status: boolean;
-  email: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-interface PermissionsResponse {
-  permissions: Permission[];
-  message: string;
-}
+import { Permission, PermissionsResponse } from "@/interfaces/interfaces";
 
 const UpdateStatusPage = () => {
   const [filteredPermissions, setFilteredPermissions] = useState<Permission[]>(
@@ -133,7 +114,7 @@ const UpdateStatusPage = () => {
                 setHidden(false);
                 setHiddenAccept(true);
               }}
-              className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             >
               Aprovado
             </button>
@@ -143,7 +124,7 @@ const UpdateStatusPage = () => {
                 setHidden(false);
                 setHiddenAccept(true);
               }}
-              className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             >
               Denegado
             </button>
@@ -181,7 +162,7 @@ const UpdateStatusPage = () => {
               onClick={() => {
                 onSubmit();
               }}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 "
             >
               Aceptar
             </button>
@@ -189,7 +170,7 @@ const UpdateStatusPage = () => {
               onClick={() => {
                 setHiddenAccept(false), setHidden(true);
               }}
-              className="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
             >
               Cancelar
             </button>

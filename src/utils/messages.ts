@@ -18,7 +18,7 @@ export const messages = {
     emailSent: "Correo enviado correctamente",
     passwordChanged: "Contraseña cambiada correctamente",
     authorized: "Autorizado",
-    permissionCreated: "A sido creado correctamente el permiso",
+    permissionCreated: "A sido creado correctamente la solicitud",
     getListPermisssions: "Lista de permisos obtenida correctamente.",
     updatedPermission: "El campo estado ha sido actualizado correctamente.",
   },

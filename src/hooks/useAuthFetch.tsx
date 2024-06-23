@@ -1,11 +1,6 @@
+import { AuthFetchProps } from "@/interfaces/interfaces";
 import useStore from "@/store/storeGlobals";
-import axios, { AxiosRequestConfig } from "axios";
-
-interface AuthFetchProps {
-  endpoint: string;
-  formData: any;
-  options?: AxiosRequestConfig<any>;
-}
+import axios from "axios";
 
 export function useAuthFetch() {
   const { setErrorAuth } = useStore();

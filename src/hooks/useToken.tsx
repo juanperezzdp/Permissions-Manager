@@ -1,22 +1,15 @@
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import jwt from "jsonwebtoken";
-
-interface UserData {
-  _id: string;
-  email: string;
-  rol: string;
-  fullUserName: string;
-  doc: number;
-}
+import { DataToken } from "@/interfaces/interfaces";
 
 const useToken = () => {
-  const [tokenData, setTokenData] = useState<{ data: UserData } | null>(null);
+  const [tokenData, setTokenData] = useState<{ data: DataToken } | null>(null);
 
   useEffect(() => {
     const useClient = Cookies.get("auth_cookie");
     if (useClient) {
-      const decodedToken = jwt.decode(useClient) as { data: UserData };
+      const decodedToken = jwt.decode(useClient) as { data: DataToken };
       setTokenData(decodedToken);
     }
   }, []);

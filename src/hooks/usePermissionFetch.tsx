@@ -1,29 +1,6 @@
+import { PermissionPost, PermissionPut } from "@/interfaces/interfaces";
 import useStore from "@/store/storeGlobals";
 import axios from "axios";
-
-interface PermissionPost {
-  formData: {
-    idUser: string | null | undefined;
-    name: string;
-    doc: number;
-    date: string;
-    unidad: string;
-    time: number;
-    description: string;
-    email: string;
-  };
-}
-
-interface PermissionPut {
-  formData: {
-    _id: string;
-    idUser: string;
-    email: string;
-    name: string;
-    date: string;
-    status: boolean;
-  };
-}
 
 const usePermissionApi = () => {
   const { setErrorPermission } = useStore();

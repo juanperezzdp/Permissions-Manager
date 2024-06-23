@@ -6,26 +6,9 @@ import usePermissionFetch from "@/hooks/usePermissionFetch";
 import useStore from "@/store/storeGlobals";
 import Image from "next/image";
 import Illustration from "@/SVG/Illustration(11).svg";
-
-interface Permission {
-  _id: string;
-  idUser: string;
-  name: string;
-  doc: number;
-  date: string;
-  unidad: string;
-  time: number;
-  description: string;
-  status: boolean;
-  email: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-interface PermissionsResponse {
-  permissions: Permission[];
-  message: string;
-}
+import { HiX } from "react-icons/hi";
+import { Permission, PermissionsResponse } from "@/interfaces/interfaces";
+import { AlertError, AlertSuccess } from "@/components/AlertInfor";
 
 const UpdateStatusPage = () => {
   const [filteredPermissions, setFilteredPermissions] = useState<Permission[]>(
@@ -44,9 +27,7 @@ const UpdateStatusPage = () => {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await axios.get<PermissionsResponse>(
-        "/api/permission"
-      );
+      const response = await axios.get<PermissionsResponse>("/api/permission");
 
       if (params) {
         const userPermissions = response.data.permissions.filter(
@@ -84,14 +65,14 @@ const UpdateStatusPage = () => {
     <div>
       <div
         style={{ display: Hidden === true ? "flex" : "none" }}
-        className="fixed z-10 bg-opacity-50 bg-black w-full h-[100vh]  justify-center items-center"
+        className="fixed z-10 bg-opacity-80 bg-black w-full h-[100vh]  justify-center items-center"
       >
-        <div className="w-[30rem]  bg-white rounded-lg p-10 animate-zoom-in animate-duration-1000 animate-iteration-count-one">
+        <div className="mx-4 w-[30rem]  bg-white rounded-lg p-10 animate-zoom-in animate-duration-1000 animate-iteration-count-one">
           <div
-            className="cursor-pointer text-2xl absolute top-2 right-5"
+            className="cursor-pointer text-2xl absolute top-3 right-3"
             onClick={() => setHidden(false)}
           >
-            x
+            <HiX />
           </div>
           <div className="text-sm mb-4">
             <p className="mb-4">
@@ -136,17 +117,17 @@ const UpdateStatusPage = () => {
       </div>
       <div
         style={{ display: HiddenAccept === true ? "flex" : "none" }}
-        className="fixed z-10 bg-opacity-50 bg-black w-full h-[110vh] justify-center items-center"
+        className=" fixed z-10 bg-opacity-80 bg-black w-full h-[110vh] justify-center items-center"
       >
-        <div className="w-[30rem]  bg-white rounded-lg p-10 animate-zoom-in animate-duration-1000 animate-iteration-count-one">
+        <div className="mx-4 w-[30rem]  bg-white rounded-lg p-10 animate-zoom-in animate-duration-1000 animate-iteration-count-one">
           <div
-            className="cursor-pointer text-2xl absolute top-2 right-5"
+            className="cursor-pointer text-2xl absolute top-3 right-3"
             onClick={() => setHiddenAccept(false)}
           >
-            x
+            <HiX />
           </div>
 
-          <div className="text-sm">
+          <div className="text-sm mb-8">
             <p className="mb-4">
               ¿Estás seguro de que deseas realizar el cambio en el estado de la
               solicitud de permiso?
@@ -157,9 +138,6 @@ const UpdateStatusPage = () => {
             </p>
           </div>
 
-          <p className="mt-4 h-10 text-center text-green-600">
-            {errorPermission}
-          </p>
           <div className=" flex justify-center items-center gap-4">
             <button
               onClick={() => {
@@ -252,7 +230,7 @@ const UpdateStatusPage = () => {
 
                   {filteredPermissions.length === 0 ? (
                     <tbody className="sm:w-full bg-white divide-y divide-gray-200">
-                      <tr className="cursor-pointer hover:bg-teal-100">
+                      <tr className="cursor-pointer hover:bg-blue-100">
                         <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
                           No se encontraron solicitudes
                         </td>
@@ -287,7 +265,7 @@ const UpdateStatusPage = () => {
                             className="sm:w-full bg-white divide-y divide-gray-200"
                           >
                             <tr
-                              className="cursor-pointer hover:bg-teal-100"
+                              className="cursor-pointer hover:bg-violet-200 hover:-translate-y-1 hover:scale-100  duration-150 shadow-slate-600 shadow-2xl"
                               onClick={() => {
                                 permission.status === null && setHidden(true);
                                 setId(permission._id);
@@ -297,15 +275,11 @@ const UpdateStatusPage = () => {
                               }}
                             >
                               <td className="px-4 py-4 text-sm font-medium whitespace-nowrap">
-                                <h2 className="font-medium text-gray-800  ">
-                                  {permission.name}
-                                </h2>
+                                <h2>{permission.name}</h2>
                               </td>
 
                               <td className="px-4 py-4 text-sm whitespace-nowrap">
-                                <h2 className="text-gray-700 ">
-                                  {permission.doc}
-                                </h2>
+                                <h2>{permission.doc}</h2>
                               </td>
                               <td className=" sm:w-80 px-4 py-4 text-sm ">
                                 <h2 className="flex items-center">
@@ -325,17 +299,17 @@ const UpdateStatusPage = () => {
                               <td className="px-12 py-4 text-sm font-medium whitespace-nowrap">
                                 <div>
                                   {(permission.status === null && (
-                                    <p className="animate-swing  animate-iteration-count-infinite inline px-3 py-2 text-sm font-normal rounded-full cursor-pointer hover:text-orange-500  hover:bg-orange-100/60 text-orange-700  bg-orange-200/80">
+                                    <p className="animate-swing  animate-iteration-count-infinite inline px-3 py-2 text-sm font-normal rounded-full cursor-pointer hover:text-orange-900  hover:bg-orange-400/100 text-orange-700  bg-orange-300/70">
                                       Cambiar el estado de la solicitud
                                     </p>
                                   )) ||
                                     (permission.status === true && (
-                                      <p className="inline px-3 py-2 text-sm font-normal rounded-full text-green-600  bg-green-100/60">
+                                      <p className="inline px-3 py-2 text-sm font-normal rounded-full text-green-700  bg-green-300/60">
                                         Aprovado
                                       </p>
                                     )) ||
                                     (permission.status === false && (
-                                      <p className="inline px-3 py-2 text-sm font-normal rounded-full text-red-500  bg-red-100/60">
+                                      <p className="inline px-3 py-2 text-sm font-normal rounded-full text-red-700  bg-red-300/60">
                                         Denegada
                                       </p>
                                     ))}
@@ -350,6 +324,24 @@ const UpdateStatusPage = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="z-20 fixed bottom-10 w-full h-4 ">
+          {errorPermission === "Te falto enviar algún campo" && (
+            <AlertError errorAuth={errorPermission} />
+          )}
+
+          {errorPermission ===
+            "No se encontró ningún documento con el idUser proporcionado." && (
+            <AlertError errorAuth={errorPermission} />
+          )}
+          {errorPermission === "Ocurrió un error" && (
+            <AlertError errorAuth={errorPermission} />
+          )}
+
+          {errorPermission ===
+            "El campo estado ha sido actualizado correctamente." && (
+            <AlertSuccess errorAuth={errorPermission} />
+          )}
         </div>
       </section>
     </div>

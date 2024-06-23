@@ -6,14 +6,9 @@ import User from "@/models/User";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 
-interface BodyProps {
-  newPassword: string;
-  confirmPassword: string;
-}
-
 export async function POST(request: NextRequest) {
   try {
-    const body: BodyProps = await request.json();
+    const body = await request.json();
 
     const { newPassword, confirmPassword } = body;
 

@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       expiresIn: 86400,
     });
 
-    const forgetUrl = `https://permissions-manager.vercel.app/change-password?token=${token}`;
+    const forgetUrl = `https://gestordepermisos.vercel.app/change-password?token=${token}`;
 
     const transporter = nodemailer.createTransport({
       service: "Gmail",
@@ -45,67 +45,118 @@ export async function POST(request: NextRequest) {
       subject: "Cambio de Contraseña",
       html: `<html lang="en-US">
       <head>
-          <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-          <title>Reset Password Email Template</title>
-          <meta name="description" content="Reset Password Email Template.">
-          <style type="text/css">
-              a:hover {text-decoration: underline !important;}
-          </style>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+        <title>Reset Password</title>
+        <meta name="description" content="Reset Password">
+        <style type="text/css">
+          body {
+            margin: 0px; 
+            background-color: #495b8d;
+          }
+          table {
+            width: 100%;
+            background-color: #495b8d;
+            border-spacing: 0;
+            border: 0;
+            cellpadding: 0;
+            cellspacing: 0;
+          }
+          table.inner-table {
+            background-color: #495b8d;
+            max-width: 670px;
+            margin: 0 auto;
+          }
+          td {
+            height: 80px;
+          }
+          table.content-table {
+            width: 95%;
+            max-width: 670px;
+            background: #ffff;
+            border-radius: 3px;
+            text-align: center;
+            box-shadow: 13px 13px 30px #0000007c;
+            margin: 0 auto;
+          }
+          img {
+            width: 30rem;
+          }
+          h1 {
+            color: #1e1e2d; 
+            font-weight: 500; 
+            margin: 0;
+            font-size: 32px;
+            font-family: 'Rubik', sans-serif;
+          }
+          p {
+            color: #455056; 
+            font-size: 15px;
+            line-height: 24px; 
+            margin: 0;
+            font-family: 'Rubik', sans-serif;
+          }
+          a {
+            background: #1899fb;
+            text-decoration: none !important; 
+            font-weight: 500; 
+            margin-top: 35px; 
+            color: #fff;
+            text-transform: uppercase; 
+            font-size: 20px; 
+            padding: 10px 24px;
+            display: inline-block;
+            border-radius: 50px;
+            font-family: 'Rubik', sans-serif;
+          }
+          a:hover {
+            text-decoration: underline !important;
+          }
+        </style>
       </head>
-      <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8;" leftmargin="0">
-          
-      <table cellspacing="0" border="0" cellpadding="0" width="100%" bgcolor="#f2f3f8">
-              <tr>
+      <body>
+        <table>
+          <tr>
+            <td>
+              <table class="inner-table">
+                <tr>
+                  <td style="height:80px;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td style="height:20px;">&nbsp;</td>
+                </tr>
+                <tr>
                   <td>
-                      <table style="background-color: #f2f3f8; max-width:670px;  margin:0 auto;" width="100%" border="0"
-                          align="center" cellpadding="0" cellspacing="0">
-                          <tr>
-                              <td style="height:80px;">&nbsp;</td>
-                          </tr>
-                          <tr>
-                             
-                          </tr>
-                          <tr>
-                              <td style="height:20px;">&nbsp;</td>
-                          </tr>
-                          <tr>
-                              <td>
-                                  <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0"
-                                      style=" max-width:670px;background:#ffff; border-radius:3px; text-align:center;-webkit-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);-moz-box-shadow:0 6px 18px 0 rgba(0,0,0,.06);box-shadow:0 6px 18px 0 rgba(0,0,0,.06);">
-                                      <tr>
-                                          <td style="height:40px;">&nbsp;</td>
-                                      </tr>
-                                      <tr>
-                                          <td style="padding:0 35px;">
-                                               
-                                          <img style="border-radius: 50%;" src="https://img.freepik.com/vector-gratis/ilustracion-concepto-sobre_114360-1363.jpg?t=st=1711628683~exp=1711629283~hmac=7c26c6e23fee18f22dfc63b09bbeb00f558183642a949d223d1fa713b31c89e3" alt="">
-                                              
-                                              <h1 style="color:#1e1e2d; font-weight:500; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">Ha solicitado restablecer su contraseña</h1>
-                                              <br>
-                                              <p style="color:#455056; font-size:15px;line-height:24px; margin:0;font-family:'Rubik',sans-serif;">
-                                                  No podemos simplemente enviarle su antigua contraseña. Se ha generado para usted un enlace único para restablecer su contraseña. Para restablecer su contraseña, haga clic en el siguiente enlace y siga las instrucciones.
-                                              </p>
-                                              <a href="${forgetUrl}"
-                                                  style="background:#6c63ff;text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:20px; padding:10px 24px;display:inline-block;border-radius:50px;font-family:'Rubik',sans-serif;">Restablecer contraseña</a>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td style="height:40px;">&nbsp;</td>
-                                      </tr>
-                                  </table>
-                              </td>
-                          <tr>
-                              <td style="height:20px;">&nbsp;</td>
-                          </tr>
-                          <tr>
-                              <td style="height:80px;">&nbsp;</td>
-                          </tr>
-                      </table>
+                    <table class="content-table">
+                      <tr>
+                        <td style="height:40px;">&nbsp;</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="https://raw.githubusercontent.com/juanperezzdp/Permissions-Manager/main/src/IMG/authentication.png" alt="">
+                          <h1>Ha solicitado restablecer su contraseña</h1>
+                          <br>
+                          <p>No podemos simplemente enviarle su antigua contraseña. Se ha generado para usted un enlace único para restablecer su contraseña. Para restablecer su contraseña, haga clic en el siguiente enlace y siga las instrucciones.</p>
+                          <a href="${forgetUrl}">Restablecer contraseña</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="height:40px;">&nbsp;</td>
+                      </tr>
+                    </table>
                   </td>
-              </tr>
-          </table>
+                </tr>
+                <tr>
+                  <td style="height:20px;">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td style="height:80px;">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
       </body>
-      </html>`,
+    </html>`,
     };
 
     await transporter.sendMail(mailOptions);
