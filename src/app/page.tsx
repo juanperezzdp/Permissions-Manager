@@ -12,12 +12,9 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { AlertError, AlertSuccess } from "@/components/AlertInfor";
 import Image from "next/image";
 import { LoginFormProps } from "@/interfaces/interfaces";
-import Table from "@/IMG/Tablee.png";
-import User from "@/IMG/User.png";
-import Email from "@/IMG/Email.jpg";
-import EmailTwo from "@/IMG/EmailTwo.jpg";
-import Areachart from "@/IMG/AreaChart.png";
-import Radial from "@/IMG/Radial.jpg";
+import Iphone from "@/IMG/iPhone 12 Pro (1).png";
+import Iphonee from "@/IMG/iPhone 12 Pro.png";
+import Iphoneee from "@/IMG/Iphone12.png";
 import { VscLoading } from "react-icons/vsc";
 import { FaRegCircle } from "react-icons/fa";
 
@@ -58,11 +55,11 @@ const LoginPage: React.FC = () => {
 
   return (
     <>
-      <main className="p-4 overflow-hidden w-full sm:h-[100vh] flex flex-col sm:flex-row justify-between items-center ">
+      <main className="p-4 overflow-hidden w-full sm:h-[100vh] flex flex-col-reverse sm:flex-row justify-between items-center ">
         <div className="flex flex-col justify-center items-center w-[40%] h-auto">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-8 lg:w-[20rem] xl:w-[25rem]"
+            className="flex flex-col gap-8 max-w-max lg:w-[20rem] xl:w-[25rem]"
           >
             <div className=" text-white text-pretty text-center">
               <h1 className=" text-[1.3rem] font-semibold">
@@ -136,7 +133,7 @@ const LoginPage: React.FC = () => {
               </div>
 
               <div className="flex flex-col gap-2 items-center justify-between">
-                <button className="w-full h-10 flex justify-center items-center text-white bg-gradient-to-r from-indigo-500 via-indigo-600-600 to-indigo-800 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:focus:ring-indigo-800 shadow-lg shadow-indigo-500/50 dark:shadow-lg dark:shadow-indigo-800/80 font-medium rounded-lg px-5 py-2.5 text-center me-2 mb-2">
+                <button className="w-full h-10 flex justify-center items-center text-white bg-gradient-to-r from-indigo-500 via-indigo-600-600 to-indigo-800 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:focus:ring-indigo-800 shadow-lg shadow-indigo-500/50 dark:shadow-lg dark:shadow-indigo-800/80 font-medium rounded-lg px-5 py-2.5 text-center  mb-2">
                   {loding === false ? (
                     "Iniciar sesión"
                   ) : (
@@ -148,7 +145,7 @@ const LoginPage: React.FC = () => {
                 </button>
                 <div className="h-5">
                   <Link
-                    className=" hover:text-gray-200 hover:underline hover:text-xl hover:-translate-y-1 hover:scale-75  duration-150 inline-block align-baseline  text-sm text-white"
+                    className="w-full hover:text-gray-200 hover:underline hover:text-xl hover:-translate-y-1 hover:scale-75  duration-150 inline-block align-baseline  text-sm text-white"
                     href="forget-password"
                   >
                     ¿Has olvidado tu contraseña?
@@ -159,25 +156,27 @@ const LoginPage: React.FC = () => {
           </form>
         </div>
 
-        <div className="w-[60%] h-[30rem] sm:h-auto ml-8 flex justify-center sm:items-center relative">
-          <div className="w-[20rem] rounded-lg overflow-hidden shadow-black shadow-lg absolute sm:top-0 sm:right-0  animate-fade-in animate-duration-1000ms animate-iteration-count-one">
-            <Image src={Table} alt="Table" />
+        <div className="w-[60%] relative flex justify-center items-center">
+          <div className="flex justify-center items-center w-full h-[50vh]">
+            <div className=" -top-4 -z-10 ">
+              <div className="animate-custom h-[15rem] w-[15rem] sm:h-[30rem] sm:w-[30rem] max-w-full animate-pulse-slow rounded-full bg-[#895bff] blur-[80px]"></div>
+            </div>
           </div>
-          <div className="w-[8rem] rounded-lg overflow-hidden shadow-black shadow-lg absolute sm:top-[45%] sm:-left-5  animate-fade-in animate-duration-1000ms animate-iteration-count-one">
-            <Image src={User} alt="Table" className="w-[8rem]" />
-          </div>
-          <div className="w-[13rem] rounded-lg overflow-hidden shadow-black shadow-lg absolute sm:-top-8 sm:left-52  animate-fade-in animate-duration-1000ms animate-iteration-count-one">
-            <Image src={Email} alt="Table" className="w-[13rem]" />
-          </div>
-          <div className="w-[13rem] rounded-lg overflow-hidden shadow-black shadow-lg absolute sm:-bottom-3 sm:left-32  animate-fade-in animate-duration-1000ms animate-iteration-count-one">
-            <Image src={EmailTwo} alt="Table" className="w-[13rem]" />
-          </div>
-          <div className="w-[20rem] rounded-lg overflow-hidden shadow-black shadow-lg absolute sm:-right-3 sm:-bottom-3  animate-fade-in animate-duration-1000ms animate-iteration-count-one">
-            <Image src={Areachart} alt="Table" />
-          </div>
-          <div className="w-[15rem] rounded-lg overflow-hidden shadow-black shadow-lg absolute sm:top-[5rem] sm:-right-3  animate-fade-in animate-duration-1000ms animate-iteration-count-one">
-            <Image src={Radial} alt="Table" />
-          </div>
+          <Image
+            className="absolute w-[10rem] sm:w-[15rem] mr-32 sm:mr-60 "
+            src={Iphone}
+            alt="Picture"
+          />
+          <Image
+            className="absolute w-[10rem] sm:w-[15rem] ml-40 sm:ml-72 "
+            src={Iphonee}
+            alt="Picture"
+          />
+          <Image
+            className="absolute w-[50rem] sm:w-[25rem] "
+            src={Iphoneee}
+            alt="Picture"
+          />
         </div>
       </main>
       <div className="fixed bottom-10 w-full h-4 ">

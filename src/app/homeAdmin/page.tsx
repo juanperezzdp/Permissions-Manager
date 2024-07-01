@@ -82,7 +82,7 @@ const HomeAdmin: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col  sm:gap-24">
+      <div className="flex flex-col gap-8 ">
         <div className="gap-8 flex flex-col sm:flex-row">
           <Radial permissions={filteredPermissions} />
           <AreaChartPermissions permissions={filteredPermissions} />

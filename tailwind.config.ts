@@ -13,6 +13,16 @@ const config: Config = {
     transparent: "transparent",
     current: "currentColor",
     extend: {
+      animation: {
+        custom: "customAnimation 4s ease-in-out infinite",
+      },
+      keyframes: {
+        customAnimation: {
+          "0%": { opacity: "0.2" },
+          "50%": { opacity: "0.5" },
+          "100%": { opacity: "0.2" },
+        },
+      },
       colors: {
         // light mode
         tremor: {
